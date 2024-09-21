@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+:root {
+	--bg: #0e0e14;
+	--fg: white;
+	--bg-light: #16161e;
+}
+body {
+	color: var(--fg);
+	background: var(--bg);
+	margin: 0;
+	font-family: Manrope, sans-serif;
+}
+a {
+	color: var(--fg);
+	text-decoration: none;
+}
+header {
+	position: fixed;
+	top: 3em;
+	height: 4em;
+	left: 4em;
+	width: calc(100vw - 8em);
+	border-radius: 2em;
+	overflow: hidden;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	z-index: 999;
+	background-color: var(--bg);
+}
+header img {
+	height: 2.6em;
+	width: 2.6em;
+	padding: 0.7em;
+}
+header svg {
+	height: 3em;
+	width: 3em;
+	padding: 0.9em;
+	margin-right: 4em;
+}
+header nav {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 2em;
+}
+header nav.main a {
+	padding: 0.7em 0 0 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+header nav.main a::after {
+	width: 0;
+	transition: width 0.5s;
+	height: 0.1em;
+	background-color: var(--fg);
+	display: block;
+	content: "";
+	margin: 0.4em 0 0 0;
+}
+header nav.main a.active {
+	pointer-events: none;
+}
+header nav.main a.active::after {
+	width: 100%;
+}
+header nav.main a:hover::after {
+	width: 2em;
+}
+
+.screen {
+	height: 100vh;
+	left: 0; right: 0;
+	position: fixed;
+	top: 0;
+}

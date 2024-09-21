@@ -1,0 +1,37 @@
+button.connect {
+	background: var(--bg);
+	color: var(--fg);
+	overflow: hidden;
+	border: none;
+	padding: 0;
+	border-radius: 2em;
+}
+.connect svg {
+	height: 4em;
+	width: 14em;
+}
+.connect .hide-mask {
+	height: 20px;
+	transition: height 1s;
+}
+.connect .icon-round {
+	r: 1.5px;
+	transition: r 1s;
+}
+.connect .arrow {
+	transform: translate(-8px, 8px);
+	transition: transform 1s;
+	stroke-width: 0.4px;
+}
+.connect:hover .arrow {
+	transform: translate(0px, 0px);
+}
+.connect:hover .icon-round {
+	r: 5px;
+}
+.connect:hover .hide-mask {
+	height: 0px;
+}
+.connect .bg-fill {
+	fill: var(--bg);
+}
