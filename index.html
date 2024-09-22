@@ -5,6 +5,7 @@
 		<link rel="stylesheet" href="connect-button.css">
 		<link rel="stylesheet" href="index.css">
 		<link rel="stylesheet" href="common.css">
+		<link rel="stylesheet" href="projects.css">
 		<script src="index.js"></script>
 	</head>
 	<body>
@@ -59,7 +60,7 @@
 		<div class="screen" id="projects">
 			<div class="header">
 				<h3>Projects</h3>
-				<button>
+				<a href="/projects">
 					<svg viewBox="0 0 24 24" class="rotating-icon">
 						<defs>
 							<mask id="pr-mask-1">
@@ -72,7 +73,7 @@
 						</g>
 					</svg>
 					<div>View All</div>
-				</button>
+				</a>
 			</div>
 			<div class="projects-list">
 				<a class="projects-item" href="/1">
@@ -146,7 +147,7 @@
 		<div class="screen" id="clients">
 			<div class="header">
 				<h3>What My Clients Say</h3>
-				<button>
+				<a href="/clients">
 					<svg viewBox="0 0 24 24" class="rotating-icon">
 						<defs>
 							<mask id="pr-mask-2">
@@ -159,7 +160,7 @@
 						</g>
 					</svg>
 					<div>View All</div>
-				</button>
+				</a>
 			</div>
 			<div class="hscroll">
 				<div class="list">
@@ -236,7 +237,7 @@
 						<div class="text-1">Let's Elevate Your</div>
 						<div class="text-2">Digital Presence</div>
 					</div>
-					<div class="column align-end flex">
+					<div class="column align-end flex flex-between">
 						<button class="connect">
 							<svg viewBox="0 0 70 20">
 								<defs>
@@ -279,10 +280,10 @@
 						<a href="">About Me</a>
 						<a href="">Playground</a>
 					</nav>
-					<div class="row align-center to-top">
+					<button class="row align-center to-top" onclick="window.scrollTo({left: 0, top: 0, behavior: 'smooth'})">
 						To Top
-						<img src="assets/toTop.svg">
-					</div>
+						<img src="/assets/toTop.svg">
+					</button>
 				</div>
 			</div>
 			<footer>

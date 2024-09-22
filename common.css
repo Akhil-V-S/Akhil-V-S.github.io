@@ -11,6 +11,13 @@ body {
 	margin: 0;
 	font-family: Manrope, sans-serif;
 }
+button {
+	background: none;
+	outline: none;
+	border: none;
+	color: var(--fg);
+	padding: 0;
+}
 a {
 	color: var(--fg);
 	text-decoration: none;
@@ -28,9 +35,9 @@ header {
 	position: fixed;
 	top: 3em;
 	height: 4em;
-	left: 2em;
-	padding: 0 2em;
-	width: calc(100vw - 8em);
+	left: 3em;
+	padding: 0 3em;
+	width: calc(100vw - 12em);
 	border-radius: 2em;
 	overflow: hidden;
 	display: flex;
@@ -91,4 +98,125 @@ header nav.main a:hover::after {
 	left: 0; right: 0;
 	position: fixed;
 	top: 0;
+}
+.row {
+	display: flex;
+	flex-direction: row;
+}
+.column {
+	display: flex;
+	flex-direction: column;
+}
+.flex-between {
+	justify-content: space-between;
+}
+.align-end {
+	align-items: flex-end;
+}
+.flex {
+	flex: 1;
+}
+.align-center {
+	align-items: center;
+}
+
+.rotating-icon path.arrow {
+	d: path('M9 15 L15 9 M10.5 9 L15 9 L15 13.5');
+	transition: d 0.5s;
+}
+a:hover .rotating-icon path.arrow {
+	d: path('M7.7573 12 L16.2426 12 M13.0607 8.8181 L16.2426 12 L13.0607 15.1819');
+}
+
+button {
+	cursor: pointer;
+}
+#footer .main {
+	background-color: var(--bg-light);
+	margin: 0 4em 0 4em;
+	padding: 4em;
+	border-radius: 3em;
+}
+#footer svg.logo {
+	fill: var(--fg);
+	height: 3em;
+	width: 3em;
+	margin: 0 0 1em 0;
+}
+#footer .text-1 {
+	font-size: 1.5em;
+	font-weight: 200;
+}
+#footer .text-2 {
+	font-size: 2.5em;
+	font-weight: 600;
+}
+#footer .main > .row {
+	gap: 5em;
+}
+#footer .row.first {
+	margin-bottom: 2em;
+}
+#footer .main .content {
+	font-weight: 200;
+	font-size: 1.1em;
+	line-height: 2em;
+	margin: 1em 0 0 0;
+}
+#footer nav {
+	display: flex;
+	gap: 2em;
+}
+#footer nav a {
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 0.95em;
+}
+#footer .to-top {
+	gap: 1em;
+	font-weight: 200;
+	text-transform: uppercase;
+	font-size: 0.9em;
+}
+#footer footer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 2em;
+	margin: 3em 4em;
+}
+#footer footer img {
+	height: 1em;
+	width: 1em;
+}
+.screen .header {
+	margin-top: 10em;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+.screen .header a {
+	background: none;
+	padding: 0em;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 1em;
+	border: none;
+	text-transform: uppercase;
+	color: currentColor;
+	fill: currentColor;
+	font-size: 1em;
+	padding: 0.5em 1em;
+}
+.screen .header a svg {
+	height: 3.1em;
+	width: 3.1em;
+}
+.screen .header h3 {
+	font-size: 3em;
+	font-weight: 300;
+	margin: 0;
 }
