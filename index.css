@@ -149,6 +149,7 @@ body {
 	position: absolute;
 	background-color: var(--bg-light);
 	border-radius: 5em;
+	overflow: hidden;
 }
 .projects-list.transit-scroll .projects-item {
 	transition: top 0.2s ease-out, opacity 0.2s ease-out, transform 0.2s ease-out;
@@ -157,9 +158,10 @@ body {
 	transition: transform 0.2s ease-out;
 }
 
-.projects-item {
+.projects-item  {
 	display: flex;
 	flex-direction: row;
+	cursor: none;
 }
 .projects-item .img {
 	overflow: hidden;
@@ -204,10 +206,10 @@ body {
 	overflow-x: auto;
 }
 #clients .list {
-	margin-left: 4em;
+	padding: 0 4em;
 	display: flex;
 	flex-direction: row;
-	gap: 2em;
+	gap: 28px;
 	width: fit-content;
 }
 #clients .list .item {
@@ -250,7 +252,7 @@ body {
 #footer {
 	left: 0; right: 0;
 	position: fixed;
-	top: 0;
+	top: 100vh;
 }
 .row {
 	display: flex;
@@ -335,6 +337,28 @@ body {
 	d: path('M9 15 L15 9 M10.5 9 L15 9 L15 13.5');
 	transition: d 0.5s;
 }
-.rotating-icon:hover path.arrow {
+button:hover .rotating-icon path.arrow {
 	d: path('M7.7573 12 L16.2426 12 M13.0607 8.8181 L16.2426 12 L13.0607 15.1819');
+}
+
+button {
+	cursor: pointer;
+}
+
+.projects-item .hover {
+	font-size: 0.65em;
+	font-weight: 600;
+	position: absolute;
+	height: 4.6em;
+	width: 4.6em;
+	padding: 1.5em;
+	border-radius: 3.8em;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	margin: -2.9em 0 0 -2.9em;
+	text-align: center;
+	background-color: var(--fg);
+	color: var(--bg);
 }

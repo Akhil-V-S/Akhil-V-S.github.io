@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 :root {
 	--bg: #0e0e14;
+	--bg-dull: #0e0e1477;
 	--fg: white;
 	--bg-light: #16161e;
 }
@@ -14,11 +15,21 @@ a {
 	color: var(--fg);
 	text-decoration: none;
 }
+.header-blur {
+	backdrop-filter: blur(6px);
+	background-color: var(--bg-dull);
+	position: fixed;
+	top: 0em;
+	height: 7em;
+	left: 0em;
+	right: 0em;
+}
 header {
 	position: fixed;
 	top: 3em;
 	height: 4em;
-	left: 4em;
+	left: 2em;
+	padding: 0 2em;
 	width: calc(100vw - 8em);
 	border-radius: 2em;
 	overflow: hidden;
@@ -27,7 +38,8 @@ header {
 	align-items: center;
 	justify-content: space-between;
 	z-index: 999;
-	background-color: var(--bg);
+	background-color: var(--bg-dull);
+	backdrop-filter: blur(6px);
 }
 header img {
 	height: 2.6em;

@@ -13,6 +13,7 @@ let projectImagesList;
 let projectItemsMoveEnd;
 
 let clients, clientsList;
+let clientsCount, clientsListScroll;
 let clientsEntryEnd;
 
 const setupIntroAnim = () => {
@@ -67,14 +68,17 @@ const moveProjectItemsAnim = (y) => {
 			item.style.top = (i - progress) * projectItemScrollTop * 100 +'%';
 			item.style.opacity = 1;
 			item.style.transform = 'scale(1)';
+			item.dataset.scale = 1;
 		} else if(progress < i+1) {
 			item.style.top = '0%';
 			item.style.opacity = 1 - progress + i;
 			item.style.transform = 'scale('+(1 - (progress - i)*0.5)+')';
+			item.dataset.scale = (1 - (progress - i)*0.5);
 		} else {
 			item.style.top = '0%'
 			item.style.opacity = 0;
 			item.style.transform = 'scale(0.5)';
+			item.dataset.scale = 0;
 		}
 	}
 }
@@ -82,6 +86,11 @@ const moveProjectItemsAnim = (y) => {
 const setupClientsAnim = () => {
 	clients = document.getElementById('clients');
 	clientsList = clients.querySelector('.list');
+	clientsListScroll = clientsList.parentElement;
+	clientsCount = clientsList.children.length;
+	clientsListScroll.scrollTo({left: clientsList.offsetWidth/2 - clientsListScroll.offsetWidth/2, top: 0, behaviour: 'smooth'});
+	clientsListScroll.dataset.scroll = clientsList.offsetWidth/2 - clientsListScroll.offsetWidth/2;
+	clientsListScroll.dataset.gap = 28;
 }
 const initClientsAnim = () => {
 	clientsEntryEnd = projectItemsMoveEnd + height;
@@ -97,7 +106,12 @@ const moveClientsAnim = (y) => {
 	else
 		progress = 2;
 	clients.style.top = (1-progress)*100+'vh';
-	clientsList.style.gap = 2 + (1 - Math.cos((progress > 1 ? progress - 1 : 1 - progress) * Math.PI/2)) * 16+'em'
+	const gap = 28 + (progress > 1 ? 0 : (1 - Math.cos((1 - progress) * Math.PI/2))) * 16*14
+	const scroll = parseFloat(clientsListScroll.dataset.scroll) - (parseFloat(clientsListScroll.dataset.gap) - gap)*(clientsCount/2 - (clientsCount%1?0:0.5))
+	clientsListScroll.scrollTo(scroll, 0);
+	clientsListScroll.dataset.scroll = scroll;
+	clientsListScroll.dataset.gap = gap;
+	clientsList.style.gap = gap+'px'
 	projects.style.opacity = 1 - Math.min(progress, 1);
 }
 
@@ -180,5 +194,34 @@ document.addEventListener('DOMContentLoaded', () => {
 			moveFooterAnim(window.scrollY);
 			moveProjectItemImagesAnim(window.scrollY);
 		});
+	});
+
+	clientsListScroll.addEventListener('scroll', e => {
+		clientsListScroll.dataset.scroll = clientsListScroll.scrollLeft;
+	});
+
+	document.querySelectorAll('.projects-item').forEach(i => {
+		const hover = i.querySelector('.hover')
+		if(hover) {
+			i.addEventListener('pointerenter', e => {
+				hover.style.display = 'flex'
+				const pos = i.getClientRects()[0];
+				hover.style.top = (e.clientY - pos.top) / parseFloat(i.dataset.scale)+'px'
+				hover.style.left = (e.clientX - pos.left) / parseFloat(i.dataset.scale)+'px'
+			});
+			i.addEventListener('pointerleave', e => {
+				hover.style.display = 'none'
+			});
+			i.addEventListener('pointermove', e => {
+				const pos = i.getClientRects()[0];
+				hover.style.top = (e.clientY - pos.top) / parseFloat(i.dataset.scale)+'px'
+				hover.style.left = (e.clientX - pos.left) / parseFloat(i.dataset.scale)+'px'
+			})
+			i.addEventListener('pointerover', e => {
+				const pos = i.getClientRects()[0];
+				hover.style.top = (e.clientY - pos.top) / parseFloat(i.dataset.scale)+'px'
+				hover.style.left = (e.clientX - pos.left) / parseFloat(i.dataset.scale)+'px'
+			})
+		}
 	});
 });
