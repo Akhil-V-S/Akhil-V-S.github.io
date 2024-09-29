@@ -4,6 +4,7 @@
 	--bg-dull: #0e0e1477;
 	--fg: white;
 	--bg-light: #16161e;
+	--fg-dark: #a1abad;
 }
 body {
 	color: var(--fg);
@@ -190,14 +191,14 @@ button {
 	height: 1em;
 	width: 1em;
 }
-.screen .header {
+.section .header {
 	margin-top: 10em;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
 }
-.screen .header a {
+.section .header a {
 	background: none;
 	padding: 0em;
 	display: flex;
@@ -211,11 +212,11 @@ button {
 	font-size: 1em;
 	padding: 0.5em 1em;
 }
-.screen .header a svg {
+.section .header a svg {
 	height: 3.1em;
 	width: 3.1em;
 }
-.screen .header h3 {
+.section .header h3 {
 	font-size: 3em;
 	font-weight: 300;
 	margin: 0;
